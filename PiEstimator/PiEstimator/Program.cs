@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PiEstimator
 {
@@ -23,11 +24,24 @@ namespace PiEstimator
         static double EstimatePi(long n)
         {
             Random rand = new Random(System.Environment.TickCount);
+            double count = 0.0;
             double pi = 0.0;
-
+            double[] x_vals = new double[n];
+            double[] y_vals = new double[n];
+            
             // TODO: Calculate Pi
 
-            return pi;
+            for (int i = 0; i < n; i++)
+            {
+                x_vals[i] = rand.NextDouble();
+                y_vals[i] = rand.NextDouble();
+                if ((x_vals[i] * x_vals[i]) + (y_vals[i] * y_vals[i]) <= 1)
+                {
+                    count += 1;
+                }
+            }
+            
+            return (4.0 * (count / n));
         }
 
         static long GetNumber(string prompt)
