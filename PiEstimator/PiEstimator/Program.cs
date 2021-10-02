@@ -35,7 +35,7 @@ namespace PiEstimator
             {
                 x = rand.NextDouble();
                 y = rand.NextDouble();
-                if ((x * x) + (y * y) <= 1)
+                if ((x * x) + (y * y) < 1)
                 {
                     count += 1;
                 }
